@@ -24,6 +24,7 @@ class Scraper
     profile = {}
     profile[:profile_quote] = page.css("profile-quote").text
     profile[:bio] = page.css("description-holder p").text
+    profile[:social] = page.css("div.social-icon-container")
   end
   profile
   binding.pry
