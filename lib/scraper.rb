@@ -39,7 +39,7 @@ class Scraper
       profile[:bio] = page.css("description-holder p").text
       end
   profile
-  binding.pry
+  #binding.pry
   end
 
 end
