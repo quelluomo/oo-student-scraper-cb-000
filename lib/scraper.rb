@@ -24,7 +24,8 @@ class Scraper
     profile = {}
     profile[:profile_quote] = page.css("profile-quote").text
     profile[:bio] = page.css("description-holder p").text
-    profile[:social] = page.css("div.social-icon-container a").attribute("href").value
+    profile[:twitter] = page.css("div.social-icon-container a").attribute("href").value
+    profile[:twitter] = page.css("div.social-icon-container a").attribute("href").value.include?("linkedin")
 
   profile
   binding.pry
