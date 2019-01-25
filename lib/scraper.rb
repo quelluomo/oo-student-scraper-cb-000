@@ -24,7 +24,7 @@ class Scraper
     profile = {}
     profile[:profile_quote] = page.css("profile-quote").text
     profile[:bio] = page.css("description-holder p").text
-    social = page.css(".social-icon-container").css("a")
+    social = page.css(".social-icon-container a")
       social.each do |social|
         link = social.attribute("href").value
         if link.include?("twitter")
