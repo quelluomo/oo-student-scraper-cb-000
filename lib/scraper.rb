@@ -23,21 +23,20 @@ class Scraper
     page = Nokogiri::HTML(html)
     profile = {}
 
-    social = page.css("div.social-icon-container a")
-      social.each do |social|
-        link = social.attribute("href").value
-        if link.include?("twitter")
-          profile[:twitter] = link
-        elsif link.include?("linkedin")
-          profile[:linkedin] = link
-        elsif link.include?("github")
-          profile[:github] = link
-        else
-          profile[:blog] = link
-        end
+    page.css("div.social-icon-container a")each do |social|
+      link = social.attribute("href").value
+      if link.include?("twitter")
+        profile[:twitter] = link
+      elsif link.include?("linkedin")
+        profile[:linkedin] = link
+      elsif link.include?("github")
+        profile[:github] = link
+      else
+        profile[:blog] = link
       end
-      profile[:profile_quote] = page.css("div.profile-quote").text
-      profile[:bio] = page.css("div.description-holder p").text
+    end
+    profile[:profile_quote] = page.css("div.profile-quote").text
+    profile[:bio] = page.css("div.description-holder p").text
   profile
   #binding.pry
   end
